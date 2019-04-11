@@ -1,0 +1,72 @@
+﻿@model StudentSystem.Web.Models.StudentViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Студенти</h1>
+        </div>
+        <h3>Сигурни ли сте, че искате да го изтриете?</h3>
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SecondName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SecondName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Number)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Number)
+                </dd>
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StudentClass)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StudentClass)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Обратно към листа", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</body>

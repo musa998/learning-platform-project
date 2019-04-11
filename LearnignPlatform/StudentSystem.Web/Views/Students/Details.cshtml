@@ -1,0 +1,48 @@
+﻿@model StudentSystem.Web.Models.StudentViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Студенти</h1>
+        </div>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SecondName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SecondName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Промени", "Edit", new { id = Model.StudentID }) |
+            @Html.ActionLink("Обратно към листа", "Index")
+        </p>
+    </div>
+</body>

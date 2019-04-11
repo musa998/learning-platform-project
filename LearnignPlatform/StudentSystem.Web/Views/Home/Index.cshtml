@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudentSystem.Web.Models.CourseViewModel>
+@{
+    ViewBag.Title = "Начало";
+}
+<title>Начало</title>
+<body>
+    @Html.Partial("_sidebar")
+    @Html.Partial("_helpbutton")
+   
+@if (User.Identity.Name != "admin@mail.com")
+       {
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+                <div class="page-header">
+            <h1>Добре дошли!</h1>
+        </div>
+        <br />
+    </div>
+
+    foreach (var course in Model)
+    {
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+                        <a href="@Url.Action("Details", "Course", new { id = course.CourseId })">@Html.DisplayFor(modelItem => course.CourseName)</a>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <img src="http://thecatapi.com/api/images/get?format=src&type=gif&guid=@(Guid.NewGuid())" class="img-responsive">
+                </div>
+            </div>
+        </div>
+    }
+}
+@if (User.Identity.Name=="admin@mail.com")
+{
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Добре дошли!</h1>
+
+        </div>
+        <p>Намирате се в администраторския профил на нашето приложение</p>
+        <p>В бутона <kbd>Помощ</kbd>, намиращ се на менюто вляво, може да получите подробни инструкции как да използвате тези функции.</p>
+
+        </div>
+        }
+   @Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+
+</body>
+
+
+

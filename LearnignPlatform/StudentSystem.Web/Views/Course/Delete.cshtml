@@ -1,0 +1,34 @@
+﻿@model StudentSystem.Web.Models.CourseViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Курсове</h1>
+        </div>
+        <h3>Сигурни ли сте, че искате да го изтриете?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CourseName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CourseName)
+                </dd>
+            </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Изтрий" class="btn btn-default" /> |
+                    @Html.ActionLink("Обратно към листа", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</body>

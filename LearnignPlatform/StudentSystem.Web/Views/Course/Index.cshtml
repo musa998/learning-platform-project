@@ -1,0 +1,28 @@
+﻿@model IEnumerable<StudentSystem.Web.Models.CourseViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Курсове</h1>
+        </div>
+        <p><a class="btn btn-danger btn-block btn-lg" href="@Url.Action("Create", "Course")">Създаване на нов.</a></p>
+        <table class="table">
+            <tr></tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CourseName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Детайли", "Details", new { id = item.CourseId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
